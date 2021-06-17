@@ -1,0 +1,38 @@
+header {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #000;
+}
+
+header:nth-child(odd) {
+    padding: 20px 0px;
+}
+
+.imagem-logo {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+}
+
+.campo-busca {
+    margin-top: 15px;
+    height: 30px;
+    width: 400px;
+    border: 2.5px solid #000;
+    border-radius: 5px;
+    padding-left: 5px;
+
+}
+
+
+
+@media screen and (max-width: 720px) {
+    
+    .campo-busca {
+        width: 40%;
+        margin-top: 25px;
+        margin-left: 0px;
+    }
+
+   
+}

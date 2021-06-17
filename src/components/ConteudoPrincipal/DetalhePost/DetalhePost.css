@@ -1,0 +1,8 @@
+.detalhe-post {
+    min-height: 300px;
+    border-radius: 15px;
+    padding: 10px 50px;
+    margin: 30px 0px;
+    min-height: 400px;
+    box-shadow: 3px 3px 5px 0;
+}

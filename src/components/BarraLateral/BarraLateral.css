@@ -1,0 +1,129 @@
+#conteudo-lateral {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0px 30px 10%;
+    border-radius: 15px;
+    padding: 20px;
+    width: 20%;
+}
+
+li {
+    list-style: none;
+}
+
+aside label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.div-tema-cor {
+    display: inline-flex;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 3px #000;
+    margin-bottom: 10px;
+    border: 2px solid #000;
+}
+
+.radio-tema {
+    display: none;
+}
+
+.label-tema {
+    padding: 8px 14px;
+    font-size: 0.9em;
+    color: #fff;
+    cursor:pointer;
+    width: -webkit-fill-available;
+    margin-bottom: 0px;
+    transition: background 0.2s;
+}
+
+#radio-tema-verde {
+    background-color: var(--bg-color-conteudo-verde);
+}
+
+#radio-tema-azul {
+    background-color: var(--bg-color-conteudo-azul);
+}
+
+#radio-tema-vermelho {
+    background-color: var(--bg-color-conteudo-vermelho);
+}
+
+
+.radio-tema:checked + #radio-tema-verde {
+    background-color: var(--bg-color-conteudo-verde-escuro);
+}
+
+.radio-tema:checked + #radio-tema-azul {
+    background-color: var(--bg-color-conteudo-azul-escuro);
+}
+
+.radio-tema:checked + #radio-tema-vermelho {
+    background-color: var(--bg-color-conteudo-vermelho-escuro);
+}
+
+
+
+
+
+#select-seleciona-tema {
+    height: 25px;
+    margin-bottom: 80px;
+    border: 2.5px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+h2 {
+    margin-bottom: 20px;
+    margin-top: 50px;
+    font-size: 1.3rem;
+}
+
+.lista-categorias-filme {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+#sugestao-paragrafo {
+    margin-top: 80px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+#box-input-bl {
+    display:inline-block;
+    width: 100%;
+    height: 30px;
+    
+}
+
+#sugestao-filme {
+    height: 30px;
+    width: 70%;
+    padding: 5px;
+    border: 1px solid #000;
+ 
+}
+
+#box-input-bl > button {
+    display: inline-block;
+    width: 30%;
+    height: 30px;
+    border: 1px solid #000;
+    background-color: #ddd9ce;
+}
+
+@media screen and (max-width: 720px) {
+
+    #conteudo-lateral {
+        width: 100%;
+        margin: 20px 10px;
+    }
+
+}
