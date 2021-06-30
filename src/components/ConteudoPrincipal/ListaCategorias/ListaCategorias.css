@@ -12,6 +12,10 @@
 
 .lista-categoria-remover {
     margin-left: 15px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 2px 3px;
+    font-size: 0.9rem;
 }
 
 #div-nova-categoria {
@@ -22,13 +26,17 @@
 }
 
 #botao-nova-categoria {
-    height: 40px;
+    height: 30px;
     width: 50%;
     border: 2px solid #000;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 1rem;
     box-shadow: 1px 1px 1px #000;
+    text-decoration: none;
+    text-align: center;
+    
+
 }
 
 .lista-categoria-review {
@@ -40,6 +48,7 @@
     border-radius: 5px;
     font-size: 0.9rem;
     cursor: pointer;
+    padding: 3px 8px;
 }
 
 #lista-categoria-ul > li {

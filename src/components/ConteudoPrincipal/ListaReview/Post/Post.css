@@ -1,6 +1,6 @@
 .p-post {
     margin-bottom: 20px;
-    height: 450px;
+    height: 500px;
     box-shadow: 3px 3px 5px 0;
     padding: 20px;
     border-radius: 15px;
@@ -15,6 +15,39 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
+}
+
+.p-titulo-botao {
+    display: flex;
+    justify-content: space-between;
+}
+
+.lnr-mensagem {
+    margin-bottom: 20px;
+    padding: 5px 15px;
+    width: 70%;
+    position: fixed;
+    top: 0;
+    right: -940px;
+}
+
+.p-botao-remover{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px solid #000;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000;
+    text-decoration: none;
+    height: 30px;
+    width: 7rem;
+    padding: 20px;
+}
+
+.p-remover {
+    width: 30%;
+    height: 30px;
 }
 
 .p-img-texto {
@@ -78,6 +111,7 @@
         overflow: inherit;
         width: auto;
         margin-left: 0px;
+        line-height: 1rem;
     }
 
     .p-categoria-botao {
@@ -88,4 +122,5 @@
     .p-botao {
         margin-top: 10px;
     }
+
 }

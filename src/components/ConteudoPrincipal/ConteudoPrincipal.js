@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React from "react";
 import {Route, Switch, Redirect} from "react-router-dom";
 
 import "./ConteudoPrincipal.css";
@@ -9,22 +9,10 @@ import ListaNovaReview from "./ListaNovaReview/ListaNovaReview";
 import ListaFilmes from "./ListaFilmes/ListaFilmes";
 import DetalhePost from "./DetalhePost/DetalhePost";
 import ReviewPorCategoria from "./ReviewPorCategoria/ReviewPorCategoria";
-
-import pegarCategorias from "../../utils/pegarCategorias";
-import pegarPost from "../../utils/pegarPost";
+import NovaCategoria from "./NovaCategoria/NovaCategoria";
 
 const ConteudoPrincipal = () => {
 
-    const [categorias, setCategorias] = useState([]);
-    const [review, setReview] = useState([]);
-
-    useEffect( ()=> {
-        pegarCategorias(setCategorias);
-    }, []);
-
-    useEffect( ()=> {
-        pegarPost(setReview);
-    }, []);
 
     return (
         <main>
@@ -36,23 +24,25 @@ const ConteudoPrincipal = () => {
                 </Route>
 
                 <Route path="/lista-filmes">
-                    <ListaFilmes lista={review}/>
+                    <ListaFilmes />
                 </Route>
 
                 <Route path="/lista-review">
-                    <ListaReview lista={review}/>
+                    <ListaReview />
                 </Route>
 
                 <Route path="/lista-categoria">
-                    <ListaCategorias lista={categorias}/>
+                    <ListaCategorias/>
                 </Route>
 
                 <Route path="/lista-novo-review">
                     <ListaNovaReview />
                 </Route>
 
-                <Route path="/detalhe-post/:id" component={DetalhePost}/>
+                <Route path="/detalhe-post/:id" component={DetalhePost} />
                 <Route path="/review-por-categoria/:id" component={ReviewPorCategoria}/>
+
+                <Route path="/nova-categoria" component={NovaCategoria}/>
 
             </Switch>
 

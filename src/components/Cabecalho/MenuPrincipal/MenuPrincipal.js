@@ -45,22 +45,22 @@ const MenuPrincipal = () => {
     return (
         <>
         
-        <TemaNav id="nav-menu-principal" style={{ backgroundColor: tema.corFundoTema}} display={menuAberto ? "none" : ""} >
-        <ul className="ul-lista-menu-principal">
-                <TemaLi style={ { backgroundColor: tema.corFundoTema} }><Link className="lista-menu-principal" to="/lista-filmes">Filmes</Link></TemaLi>
-                <TemaLi style={ { backgroundColor: tema.corFundoTema} }><Link className="lista-menu-principal" to="/lista-review">Reviews</Link></TemaLi>
-                <TemaLi  className="lista-menu-principal" style={ { backgroundColor: tema.corFundoTema} }>
-                <Link  style={ { backgroundColor: tema.corFundoTema} } className="lista-menu-categoria" to="/lista-categoria">Categorias</Link>
+        <TemaNav id="nav-menu-principal"  display={menuAberto ? "none" : ""} >
+        <ul className="ul-lista-menu-principal" style={ { backgroundColor: tema.corFundoTema} }>
+                <TemaLi><Link className="lista-menu-principal" to="/lista-filmes">Filmes</Link></TemaLi>
+                <TemaLi ><Link className="lista-menu-principal" to="/lista-review">Reviews</Link></TemaLi>
+                <TemaLi  className="lista-menu-principal">
+                <Link  className="lista-menu-categoria" to="/lista-categoria">Categorias</Link>
 
-                    <ul style={ { backgroundColor: tema.corFundoTema  } } className="div-lista-categoria">
+                    <ul className="div-lista-categoria" style={ { backgroundColor: tema.corFundoTema} }>
                         
                         {categorias.map( item => {
-                            return <TemaLi key={item.id}><Link className="lista-menu-principal"to={`/review-por-categoria/${item.id}`}>{item.descricao}</Link></TemaLi>
+                            return <TemaLi key={item.id}  ><Link className="lista-menu-principal"to={`/review-por-categoria/${item.id}`}>{item.descricao}</Link></TemaLi>
                         })}
 
                     </ul>
                 </TemaLi>
-                <TemaLi style={ { backgroundColor: tema.corFundoTema} }><Link className="lista-menu-principal" to="/lista-novo-review">Novo review</Link></TemaLi>
+                <TemaLi><Link className="lista-menu-principal" to="/lista-novo-review">Novo review</Link></TemaLi>
             </ul>
             </TemaNav>  
         

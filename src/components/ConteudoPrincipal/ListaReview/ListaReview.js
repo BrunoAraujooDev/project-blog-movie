@@ -1,22 +1,23 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./ListaReview.css";
 
 import Post from "./Post/Post";
+import pegarPost from "../../../utils/pegarPost";
 
-const ListaReview = ( {lista} ) => {
+const ListaReview = () => {
+
+    const [review, setReview] = useState([]);
+
+    useEffect( ()=> {
+        pegarPost(setReview);
+    }, []);
+
+
     return (
         <div>
-            {lista.length > 0 ? lista.map(  item => {
+            {review.length > 0 ? review.map(  item => {
                 return <Post review={item} key={item.id}/> 
-            }) : <p>Carregando...</p> } 
-
-            {/* {categorias.length > 0 ? categorias.map(  item => {
-                return <Post categorias={item}/> 
-            }) : <p>Carregando...</p> }  */}
-            {/* <Post idPost={lista.id}/>
-
-            <Post idPost={102}/>
-            <Post idPost={95}/> */}
+            }) : <p>Carregando...</p> }
         </div>
     );
 };

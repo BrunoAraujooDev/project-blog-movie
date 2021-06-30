@@ -82,6 +82,7 @@ h2 {
     margin-bottom: 20px;
     margin-top: 50px;
     font-size: 1.3rem;
+    font-weight: bold;
 }
 
 .lista-categorias-filme {
@@ -124,6 +125,12 @@ h2 {
     #conteudo-lateral {
         width: 100%;
         margin: 20px 10px;
+        height: 100px;
+    }
+
+
+    .bl-div-celular{
+        display: none;
     }
 
 }

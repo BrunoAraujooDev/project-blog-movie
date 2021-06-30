@@ -6,3 +6,74 @@
     min-height: 400px;
     box-shadow: 3px 3px 5px 0;
 }
+
+#dp-titulo{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+#dp-div-info {
+    display: flex;
+}
+
+#dp-imagem-principal {
+    min-height: 200px;
+    width: 20%;
+    border: 3px solid #000;
+}
+
+#dp-info-gerais {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+#dp-titulo-analise{
+    text-align: center;
+}
+
+#dp-conclusao {
+    margin: 2rem 0rem;
+    font-weight: bold;
+}
+
+#dp-div-carroussel {
+    min-height: 400px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.dp-imagem-carrossel {
+    height: 400px;
+    width: 100%;
+    vertical-align: middle;
+    border-style: none;
+    object-fit: cover;
+}
+
+.dp-nota-final{
+    margin: 30px 0px;
+}
+
+.dp-p {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 720px) {
+
+    #dp-div-info {
+        flex-direction: column;
+    }
+
+    #dp-imagem-principal {
+        width: 100%;
+    }
+
+    #dp-info-gerais {
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+
+
+}

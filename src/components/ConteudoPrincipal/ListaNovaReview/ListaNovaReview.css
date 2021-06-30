@@ -18,6 +18,17 @@
     margin-bottom: 50px;
 }
 
+.lnr-mensagem {
+    margin-bottom: 20px;
+    padding: 5px 15px;
+    width: 70%;
+    position: fixed;
+    top: 0;
+    right: -940px;
+}
+
+
+
 .nr-class > label {
     margin-bottom: 0.3rem;
 }
@@ -27,6 +38,10 @@
     height: 30px;
     border-radius: 7px;
     border: none;
+}
+
+.nr-input-carousel {
+    margin-bottom: 20px;
 }
 
 #nr-area-sinopse {

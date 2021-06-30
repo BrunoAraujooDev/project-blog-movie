@@ -1,4 +1,5 @@
 import React, {useContext} from "react";
+import {Link} from "react-router-dom";
 import "./Cabecalho.css";
 
 import MenuPrincipal from "./MenuPrincipal/MenuPrincipal";
@@ -18,7 +19,7 @@ const Cabecalho = () => {
     return (
         <header style={ { backgroundColor: tema.corFundoTema} }>
             
-            <img className="imagem-logo" src={logo} alt="Logo do blog" />
+            <Link to="/"><img className="imagem-logo" src={logo} alt="Logo do blog" /></Link>
             
             
             <MenuPrincipal />

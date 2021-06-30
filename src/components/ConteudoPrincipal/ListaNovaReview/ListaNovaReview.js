@@ -1,12 +1,27 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useEffect} from "react";
+import {useHistory} from "react-router-dom";
+import { Toast, ToastBody, ToastHeader } from 'reactstrap'; 
+
+
 import "./ListaNovaReview.css";
 import TemaContext from "../../../Contexts/TemaContext";
+import salvarNovaReview from "../../../utils/salvarNovaReview";
+import pegarCategorias from "../../../utils/pegarCategorias";
+
 
 const ListaNovaReview = () => {
 
     const tema = useContext(TemaContext);
 
     const [formulario, setFormulario] = useState({});
+    const [mensagem, setMensagem] = useState("");
+    const [carrossel1, setCarrossel1] = useState("");
+    const [carrossel2, setCarrossel2] = useState("");
+    const [carrossel3, setCarrossel3] = useState("");
+    const [categorias, setCategorias] = useState("");
+    
+    const history = useHistory();
+
 
     const enviarFormulario = event => {
         
@@ -17,42 +32,78 @@ const ListaNovaReview = () => {
         [name]: value
             
         })
+    };
+    
+
+    const OpcoesCategorias = () => {
+
+        if(categorias.length > 0 ) {
+            const listaCategorias = categorias.map((item) => {
+                return (
+                    <option value={item.id} key={item.id}>
+                        {item.descricao}
+                    </option>
+                )
+            });
+
+            return listaCategorias;
+        } else {
+            return null;
+        }
     }
+    
 
     const submitarFormulario = event => {
+
         
         event.preventDefault()
 
-        if( !formulario.titulo || !formulario.idCategoria || !formulario.cartaz || !formulario.sinopse || !formulario.atores || !formulario.diretor || !formulario.lancamento || !formulario.nota || !formulario.descricao ) {
+        if( !formulario.titulo || !formulario.idCategoria || !formulario.imagem || !formulario.sinopse || !formulario.atoresPrincipais || !formulario.diretor || !formulario.lancamento || !formulario.nota || !formulario.descricao ) {
                 alert("Por favor, preencha todos os campos!")
                 return false;
         }
 
+        const juntarCarrossel = [carrossel1, carrossel2, carrossel3];
+
         const novoFormulario = {
             ...formulario,
+            imagemCarousel: juntarCarrossel,
             idCategoria: parseInt(formulario.idCategoria),
             dataPostagem: new Date().toLocaleDateString()
         }
 
-        // salvarNovoReview(novoFormulario);
+        salvarNovaReview(novoFormulario, setMensagem);
+
+        setFormulario("");
+        setCarrossel1("");
+        setCarrossel2("");
+        setCarrossel3("");
+
+        setTimeout( () => {
+            history.push("/lista-review");
+        } , 3000)
 
     }
 
-        
-                // titulo: "",
-                // categoria: "",
-                // cartaz: "",
-                // sinopse: "",
-                // atores: "",
-                // diretor: "",
-                // lancamento: "",
-                // nota: "",
-                // descricao: ""
-
+    useEffect( () => {
+        pegarCategorias(setCategorias);
+    }, [])
 
     return (
         <div id="new-review-div" style={ {backgroundColor: tema.corFundoTema} }>
         <h2>Novo review</h2>
+        {mensagem ? 
+            <div className="lnr-mensagem p-3 my-2 rounded">
+                <Toast>
+                    <ToastHeader>
+                        Mensagem de cadastro
+                    </ToastHeader>
+                    <ToastBody>
+                        {mensagem}
+                    </ToastBody>
+                </Toast>
+            </div>
+        : null}
 
         <form   onSubmit={event => submitarFormulario(event)}>
             <div className="nr-class">
@@ -62,19 +113,13 @@ const ListaNovaReview = () => {
             <div className="nr-class">
                 <label>Escolha uma categoria</label>
                 <select  value={formulario.idCategoria || ""} name="idCategoria" className="nr-input" onChange={ enviarFormulario }>
-                    <option  defaultValue disabled >Selecione uma opção</option>
-                    <option value={1}>Ação</option>
-                    <option value={2}>Aventura</option>
-                    <option value={3}>Comédia</option>
-                    <option value={4}>Drama</option>
-                    <option value={5}>Romance</option>
-                    <option value={6}>Suspense</option>
-                    <option value={7}>Terror</option>
+                    <option defaultValue disabled value="">Selecione uma opção</option>
+                    <OpcoesCategorias />
                 </select>
             </div>
             <div className="nr-class">
                 <label>Cartaz do filme</label>
-                <input className="nr-input" name="cartaz" value={formulario.cartaz || ""} onChange={ enviarFormulario }/>
+                <input className="nr-input" name="imagem" value={formulario.imagem || ""} onChange={ enviarFormulario }/>
             </div>
             <div className="nr-class">
                 <label>Sinopse</label>
@@ -84,7 +129,7 @@ const ListaNovaReview = () => {
             </div>
             <div className="nr-class">
                 <label>Principais atores</label>
-                <input className="nr-input"  name="atores" value={formulario.atores || ""} onChange={ enviarFormulario }/>
+                <input className="nr-input"  name="atoresPrincipais" value={formulario.atoresPrincipais || ""} onChange={ enviarFormulario }/>
             </div>
             <div className="nr-class">
                 <label>Diretor</label>
@@ -97,6 +142,12 @@ const ListaNovaReview = () => {
             <div className="nr-class">
                 <label>Nota</label>
                 <input className="nr-input" name="nota" value={formulario.nota || ""} onChange={ enviarFormulario }/>
+            </div>
+            <div className="nr-class">
+                <label>Imagens extras</label>
+                <input className="nr-input nr-input-carousel" name="imagemCarousel"  value={carrossel1 || ""} onChange={ event => setCarrossel1(event.target.value)  }/>
+                <input className="nr-input nr-input-carousel" name="imagemCarousel2" value={carrossel2 || ""} onChange={ event => setCarrossel2(event.target.value) }/>
+                <input className="nr-input nr-input-carousel" name="imagemCarousel3" value={carrossel3 || ""} onChange={ event => setCarrossel3(event.target.value) }/>
             </div>
             <div className="nr-class">
                 <label>Análise do filme</label>

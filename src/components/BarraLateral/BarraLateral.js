@@ -10,18 +10,11 @@ const BarraLateral = ( {funcaoConfiguraTema} ) => {
 
     const tema = useContext(TemaContext);
 
-    // const pegarPost = async () => {
+    const enviarSugestao = event => {
+        event.preventDefault();
 
-    //     try {
-    //         const resposta = await instanciaAxios.get('http://www.omdbapi.com/?i=tt3896198&apikey=54b53b34');
-    //             console.log(resposta.data)
-    //             console.log("texto")
-    //         // setListaPost(resposta.data.vencimentos);
-    
-    //     } catch (error) {
-    //         console.log(`Houve um problema! Erro: ${error.message}`);
-    //     }
-    // };
+        document.getElementById("sugestao-filme").value = "";
+    }
 
     return (
         <aside style={ { backgroundColor: tema.corFundoTema} } id="conteudo-lateral">
@@ -47,9 +40,9 @@ const BarraLateral = ( {funcaoConfiguraTema} ) => {
             </div>
 
 
-            <h2>Principais categorias:</h2>
+            <h2 className="bl-div-celular">Principais categorias:</h2>
             
-            <nav>
+            <nav className="bl-div-celular">
                 
                 <ul>
                     <li>
@@ -67,9 +60,9 @@ const BarraLateral = ( {funcaoConfiguraTema} ) => {
                 </ul>
             </nav>
 
-            <div>
+            <div className="bl-div-celular">
                 <p id="sugestao-paragrafo">Alguma sugestão de filme? Conte pra gente!</p>
-                <form id="box-input-bl" onSubmit="event.preventDefault()">
+                <form id="box-input-bl" onSubmit={event => enviarSugestao(event) }>
                     <input id="sugestao-filme" placeholder="Insira o nome do filme" />
                     <button type="submit">Sugerir</button>
                 </form>

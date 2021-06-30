@@ -1,6 +1,6 @@
 nav .lista-menu-principal {
     display: inline-block;
-    padding: 15px;
+    padding: 20px;
 }
 
 .ul-lista-menu-principal {
@@ -35,9 +35,9 @@ nav .lista-menu-principal {
     padding: 0px;
 }
 
-.div-lista-categoria > .lista-menu-principal {
-    font-size: 0.9em;
-}
+/* .div-lista-categoria > .lista-menu-principal {
+    font-size: 0.5em;
+} */
 
 
 
@@ -70,18 +70,23 @@ nav .lista-menu-principal {
     #div-cabecalho-hamburguer {
         display: flex;
         flex-direction: column;
-        padding: 5px;
+        padding: 7px;
         width: 50px;
         cursor: pointer;
         height: fit-content;
         margin-top: 15px;
         order: 1;
+        border-radius: 10px;
     }
 
     #div-cabecalho-hamburguer > div {
         height: 10px;
         width: 100%;
         margin-bottom: 5px;
+    }
+
+    .div-lista-categoria{
+        display: none;
     }
 
 }
