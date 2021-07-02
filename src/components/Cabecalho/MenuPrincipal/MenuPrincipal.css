@@ -35,9 +35,6 @@ nav .lista-menu-principal {
     padding: 0px;
 }
 
-/* .div-lista-categoria > .lista-menu-principal {
-    font-size: 0.5em;
-} */
 
 
 
@@ -56,9 +53,23 @@ nav .lista-menu-principal {
 
 
     #nav-menu-principal{
-        order: 1;
-
-    }
+        order: 2;
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        }
+        @-webkit-keyframes fadeIn {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+        }
+        @keyframes fadeIn {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    } 
+    
 
     .ul-lista-menu-principal {
         position: absolute;
