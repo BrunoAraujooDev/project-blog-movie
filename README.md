@@ -1,3 +1,7 @@
+### In order to get the full aplication of this blog, please download the API made only for this blog.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
